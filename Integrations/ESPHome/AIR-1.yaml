@@ -54,7 +54,7 @@ api:
         - sen5x.start_fan_autoclean: sen55
 
 ota:
-  - platform: esphome
+  platform: esphome
   password: "apolloautomation"
   safe_mode: false
 
