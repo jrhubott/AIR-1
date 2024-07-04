@@ -56,7 +56,6 @@ api:
 ota:
   platform: esphome
   password: "apolloautomation"
-  safe_mode: false
 
 wifi:
   on_connect:
