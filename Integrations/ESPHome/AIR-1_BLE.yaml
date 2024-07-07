@@ -22,7 +22,11 @@ esphome:
 esp32:
   board: esp32-c3-devkitm-1
   framework:
-    type: esp-idf
+    type: arduino
+
+dashboard_import:
+  package_import_url: github://ApolloAutomation/AIR-1/Integrations/ESPHome/AIR-1.yaml
+  import_full_config: false
 
 globals:
   - id: cycleCounter
@@ -58,6 +62,8 @@ ota:
     password: "apolloautomation"
     id: ota_default
 
+bluetooth_proxy:
+  active: true
 
 wifi:
   on_connect:
@@ -68,6 +74,13 @@ wifi:
     ssid: "Apollo AIR1 Hotspot"
 
 captive_portal:
+
+
+web_server:
+  port: 80
+
+logger:
+  level: NONE
 
 i2c:
   sda: GPIO1
@@ -254,22 +267,16 @@ sensor:
     id: mics4514
     nitrogen_dioxide:
       name: Nitrogen Dioxide
-      id: nitrogen_dioxide
     carbon_monoxide:
       name: Carbon Monoxide
-      id: carbon_monoxide
     hydrogen:
       name: Hydrogen
-      id: hydrogen
     ethanol:
       name: Ethanol
-      id: ethanol
     methane:
       name: Methane
-      id: methane
     ammonia:
       name: Ammonia
-      id: ammonia
     update_interval: 10s
 
 light:
@@ -285,14 +292,8 @@ light:
     effects:
       - pulse:
           name: "Slow Pulse"
-          transition_length: 1000ms
-          update_interval: 1000ms
-          min_brightness: 50%
-          max_brightness: 100%
-      - pulse:
-          name: "Pulse"
-          transition_length: 500ms
-          update_interval: 500ms
+          transition_length: 250ms
+          update_interval: 250ms
           min_brightness: 50%
           max_brightness: 100%
       - pulse:
